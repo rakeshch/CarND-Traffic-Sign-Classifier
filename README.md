@@ -10,15 +10,11 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-My complete project code can be found [here](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
-
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.
----
+My complete project code with results for individual steps can be found [here](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
-#### 1. After loading the pickled data for traning, validation and testing, I have used numpy to print out the basic summary of the the data set.	
+#### 1. After loading the pickled data for traning, validation and testing, I have used numpy to print out the basic summary of the data set I will be working on in this project.	
 
 * Number of training examples = 34799
 * Number of validation examples = 4410
@@ -74,18 +70,9 @@ We can see that Road Work signal is misclassified as Speed imit (70km/h), this c
 
 The model was able to correctly predict 4 out of 5 traffic signals, with an accuracy of 80%.
 
-### Output Top 5 Softmax Probabilities For Each Image Found on the Web
+### Top 5 Softmax Probabilities For Each Image Found on the Web
 
-Image 0 probabilities: [ 7.4714255  5.598269   2.916692   1.6689079 -1.3966529] 
- and predicted classes: [34 38 26  5  8]
-Image 1 probabilities: [32.015133   8.04599    1.9524108  0.9941313  0.6116342] 
- and predicted classes: [5 2 7 1 3]
-Image 2 probabilities: [21.124653  10.341719   4.6132293  3.3893962  0.7867794] 
- and predicted classes: [13 15 12 38 35]
-Image 3 probabilities: [17.01826     2.778535    0.30321422  0.10585031 -0.32532477] 
- and predicted classes: [14 38  1 18 26]
-Image 4 probabilities: [12.992151   9.521189   7.7503657  7.091031   2.2030299] 
- and predicted classes: [ 4 40 26 18 14]
+![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/softmax.PNG)
 
 For the first image, the model correctly preicts the Turn left ahead signal. But, given the highest probability was only around 7% for left turn and 5% for right turn, the model definitely struggles distinguishing between left and right signs.
 
@@ -94,6 +81,3 @@ For the second, third and fourth images,the model is more confident on the speed
 For fifth, it incorrectly guesses Road work sign. I believe this is due to the way the image shaped after preprocessing. 
 
 So, my model only worked 80% of the additional pictures. I believe with some tweaking of preprocessing of the images I could get better predictions. 
-
-https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/softmax.PNG
-
