@@ -26,7 +26,7 @@ My complete project code with results for individual steps can be found [here](h
 
 Bar chart below shows the disribution of classes in the trainign data set.
 
-![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/histogram_label_frequency.png)
+![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/histogram_label_frequency.png)
 
 ### Design and Test a Model Architecture
 
@@ -45,7 +45,7 @@ Then I applied scaling by a factor of 1.8 which resulted in image resolution inc
 
  All operations are called in the preprocess-> img_transformation functions.
 
-![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/after_preprocessing.PNG)
+![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/after_preprocessing.PNG)
 
 After preprocessing the dataset, I used LeNet5 as my final model. One thing I did change from the basic LeNet structure was adding dropout to the fully connected layers. The layer uses 70% dropout and experiments shown that it really help to decrease overfitting.
 
@@ -58,26 +58,26 @@ Test Accuracy: 95%
 ### Test a Model on New Images
 
 I choose five German traffic signs found on the web to test my model.
-![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/web_test_signs.PNG)
+![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/web_test_signs.PNG)
 
 Below are the images after preprocessing
-![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/web_preprocessed_signs.PNG)
+![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/web_preprocessed_signs.PNG)
 
 Below are the images after running the predictions on preprocessed images using my model.
-![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/test_images_model_out.PNG)
+![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/test_images_model_out.PNG)
 
-We can see that Road Work signal is misclassified as Speed imit (70km/h), this could be due to the preprocessing step crops the image a bit toomuch making it difficult for the classifier.
+We can see that Road Work signal is misclassified as General caution, this could be due to the preprocessing step crops the image a bit too much making it difficult for the classifier.
 
 The model was able to correctly predict 4 out of 5 traffic signals, with an accuracy of 80%.
 
 ### Top 5 Softmax Probabilities For Each Image Found on the Web
 
-![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/softmax.PNG)
+![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/softmax.PNG)
 
-For the first image, the model correctly preicts the Turn left ahead signal. But, given the highest probability was only around 7% for left turn and 5% for right turn, the model definitely struggles distinguishing between left and right signs.
+For the first third and fourth images,the model is more confident on the left turn, yield and stop signs than anything it thought on the others.
 
-For the second, third and fourth images,the model is more confident on the speed, yield and stop signs than anything it thought on the others.
+For the second image, the model correctly predicts the Speed limit (80 km/h). But, given the highest probability was only around 8% for 80 km/h and 6% for 30 km/h, the model definitely struggles distinguishing between speed limit signs.
 
-For fifth, it incorrectly guesses Road work sign. I believe this is due to the way the image shaped after preprocessing. 
+For fifth, it incorrectly classifies Road work sign as general caution. I believe this is due to the way the image shaped after preprocessing. 
 
 So, my model only worked 80% of the additional pictures. I believe with some tweaking of preprocessing of the images I could get better predictions. 
