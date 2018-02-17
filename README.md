@@ -8,7 +8,6 @@ The goals / steps of this project are the following:
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
 
 My complete project code with results for individual steps can be found [here](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
