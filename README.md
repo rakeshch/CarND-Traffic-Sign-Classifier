@@ -46,7 +46,7 @@ Then I applied scaling by a factor of 1.8 which resulted in image resolution inc
 
 ![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/after_preprocessing.PNG)
 
-After preprocessing the dataset, I used LeNet5 as my final model. One thing I did change from the basic LeNet5 structure was adding dropout to the fully connected layers. The layer uses 70% dropout and experiments shown that it really help to decrease overfitting.
+After preprocessing the dataset, I used LeNet5 as my final model. One thing I did change from the basic LeNet5 structure was adding dropout to the fully connected layers. The layer uses 50% dropout and experiments shown that it really help to decrease overfitting.
 
 My final model consisted of the following layers:
 
@@ -62,10 +62,10 @@ My final model consisted of the following layers:
 | Flatten	        	| outputs 400 										|
 | Fully connected		| outputs 120  										|
 | RELU					|													|
-| Dropout				| keep probability = 0.7 							|
+| Dropout				| keep probability = 0.5 							|
 | Fully connected		| outputs 84  										|
 | RELU					|													|
-| Dropout				| keep probability = 0.7 							|
+| Dropout				| keep probability = 0.5 							|
 | Fully connected		| outputs 43 logits  								|
 |						|													|
 
