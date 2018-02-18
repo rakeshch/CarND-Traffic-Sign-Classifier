@@ -84,14 +84,14 @@ I choose five German traffic signs found on the web to test my model.
 ![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/web_test_signs.PNG)
 
 Below are the images after preprocessing
-![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/web_preprocessed_signs.PNG)
-
-Below are the images after running the predictions on preprocessed images using my model.
 ![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/test_images_model_out.PNG)
 
-We can see that Road Work signal is misclassified as General caution, this could be due to the preprocessing step crops the image a bit too much making it difficult for the classifier.
+Below are the images after running the predictions on preprocessed images using my model.
+![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/web_preprocessed_signs.PNG)
 
-The model was able to correctly predict 4 out of 5 traffic signals, with an accuracy of 80%.
+We can see that Road Work and Left turn signs are misclassified, this could be due to the preprocessing step crops the image a bit too much making it difficult for the classifier.
+
+The model was able to correctly predict 3 out of 5 traffic signals, with an accuracy of 60%.
 
 ### Top 5 Softmax Probabilities For Each Image Found on the Web
 
