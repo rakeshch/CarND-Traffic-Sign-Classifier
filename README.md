@@ -46,13 +46,37 @@ Then I applied scaling by a factor of 1.8 which resulted in image resolution inc
 
 ![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/after_preprocessing.PNG)
 
-After preprocessing the dataset, I used LeNet5 as my final model. One thing I did change from the basic LeNet structure was adding dropout to the fully connected layers. The layer uses 70% dropout and experiments shown that it really help to decrease overfitting.
+After preprocessing the dataset, I used LeNet5 as my final model. One thing I did change from the basic LeNet5 structure was adding dropout to the fully connected layers. The layer uses 70% dropout and experiments shown that it really help to decrease overfitting.
 
-The CNN was trained with the Adam optimizer, batch size = 100 images, learning rate = 0.0009. The model was trained for 50 epochs (34799 images in each epoch) with one dataset. Learning rate was updated by try and error process.
+My final model consisted of the following layers:
 
-Validation Accuracy: 97%
+| Layer         		|     Description	        						| 
+|:---------------------:|:-------------------------------------------------:| 
+| Input         		| 32x32x1 Grayscale image   						| 
+| Convolution 5x5     	| 1x1 stride, 'VALID' padding, outputs 28x28x6 		|
+| RELU					|													|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6 						|
+| Convolution 5x5	    | 1x1 stride, 'VALID' padding, outputs 10x10x16 	|
+| RELU					|													|
+| Max pooling	      	| 2x2 stride,  outputs 5x5x16 						|
+| Flatten	        	| outputs 400 										|
+| Fully connected		| outputs 120  										|
+| RELU					|													|
+| Dropout				| keep probability = 0.7 							|
+| Fully connected		| outputs 84  										|
+| RELU					|													|
+| Dropout				| keep probability = 0.7 							|
+| Fully connected		| outputs 43 logits  								|
+|						|													|
 
-Test Accuracy: 95%
+The CNN was trained with the Adam optimizer.  I tried a few different batch sizes, but settled at 100 as that seemed to perform better than batch sizes larger or smaller than that. I ran only 30 epochs, primarily as a result of time and further performance gains, as it was already arriving at nearly 97% validation accuracy, and further epochs resulted in only marginal gains while continuing to increase time incurred in training. 
+
+As the CNN with 2 convolutional layers, 3 fully connected, a learning rate of .0009 and a batch size 30 appears to result in the optimal CNN, I utilized this for the final model.
+
+My final model results were:
+
+* Validation set accuracy of 96%-97%
+* test set accuracy of 95%
 
 ### Test a Model on New Images
 
@@ -73,10 +97,8 @@ The model was able to correctly predict 4 out of 5 traffic signals, with an accu
 
 ![Screenshot](https://github.com/rakeshch/Traffic_Sign_Classifier/blob/master/Out_images/softmax.PNG)
 
-For the first third and fourth images,the model is more confident on the left turn, yield and stop signs than anything it thought on the others.
+For the second, third and fourth images,the model is more confident on the speed limit, yield and stop signs than anything it thought on the others.
 
-For the second image, the model correctly predicts the Speed limit (80 km/h). But, given the highest probability was only around 8% for 80 km/h and 6% for 30 km/h, the model definitely struggles distinguishing between speed limit signs.
+For the first and fifth sign, the model incorrectly classifies left turn sign as right turn and Road work sign as General Caution. I believe this is due to the way the image has been preprocessed.
 
-For fifth, it incorrectly classifies Road work sign as general caution. I believe this is due to the way the image shaped after preprocessing. 
-
-So, my model only worked 80% of the additional pictures. I believe with some tweaking of preprocessing of the images I could get better predictions. 
+So, my model only worked 60% of the additional pictures. I believe with some tweaking of preprocessing of the images I could get better predictions. 
